@@ -1,0 +1,79 @@
+
+#con1{
+    border: 2px solid yellow;
+    padding:3%;
+}
+
+#level2{
+   display: flex;
+
+}
+#con2{
+    
+    padding:3%;
+    width:30%;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+}
+#search{
+    background-color: blue;
+    width:25%;
+    position:relative;
+    left:76%;
+    bottom:50%;
+   
+
+}
+#giveC{
+
+    width:75%;
+    position:relative;
+    right:2%;
+}
+#con3{
+    border: 2px solid grey;
+    padding:2%;
+    min-width:40%;
+    display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+
+    
+}
+.daySlip{
+   
+    
+    border: 2px solid blue;
+    margin:3%;
+    
+}
+.date{
+    text-align: center;
+    padding: 20px 70px;
+    background-color: red;
+}
+.temp{
+
+    padding:20px 70px;
+    background-color: bisque;
+    margin-top:20%;
+
+}
+.icon{
+    padding:20px 70px;
+    background-color: honeydew;
+    margin-top: 20%;
+}
+.hiLo{
+
+    padding:20px 70px;
+    background-color: lightcyan;
+    margin-top: 20%;
+}
+.index{
+
+    padding:20px 70px;
+    background-color: wheat;
+    margin-top: 20%;
+}
