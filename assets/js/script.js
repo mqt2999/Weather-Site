@@ -1,18 +1,18 @@
 var listOFCities = ['Dallas', 'Minneapolis', 'Los Angeles', 'Seattle', 'New York', 'Miami', 'Boston', 'Washington D.C.', 'Baltimore', 'Cleavland']
 var cityListDiv = document.getElementById('cityList')
 
-var url = 'http://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=f932c7ef48b242dff55d444fbb313308'
+// var url = 'http://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=f932c7ef48b242dff55d444fbb313308'
 
-fetch(url, {
+// fetch(url, {
 
-}).then(function (response) {
-    console.log(response)
-    return response.json();
-})
-    .then(function (data) {
-        console.log(data)
-        console.log(data.list[9].weather[0].icon)
-    });
+// }).then(function (response) {
+//     console.log(response)
+//     return response.json();
+// })
+//     .then(function (data) {
+//         console.log(data)
+//         console.log(data.list[9].weather[0].icon)
+//     });
 
 cityList()
 function cityList() {
@@ -38,32 +38,15 @@ function cityList() {
 
 
 
-       hh.push(city.value)
+        // hh.push(city.value)
 
-       console.log(JSON.stringify(hh))
+        console.log(JSON.stringify(hh))
 
-       localStorage.setItem('listOcity',JSON.stringify(hh))
+        localStorage.setItem('listOcity', JSON.stringify(hh))
 
         localStorage.getItem
-})
+    })
 
-    // for(var c=0;c<listOFCities.length; c++){
-
-    //     var cityName = listOFCities[c]
-
-    //     var cityEl = document.createElement('li')
-    //     cityEl.classList = 'list-group-item'
-    //     cityEl.textContent = cityName
-
-    //     cityListDiv.appendChild(cityEl)
-
-    //     cityEl.addEventListener('click', function (event) {
-
-    //         console.log(event.currentTarget.textContent)
-    //         show(event.currentTarget.textContent)
-    //     })
-
-    // }
 
 }
 
@@ -111,12 +94,20 @@ function show(g) {
             feelLike(feel1, feel2, feel3, feel4, feel5)
 
             var hL1 = data.list[5].main.temp_max
+            var hL2 = data.list[13].main.temp_max
+            var hL3 = data.list[21].main.temp_max
+            var hL4 = data.list[29].main.temp_max
+            var hL5 = data.list[37].main.temp_max
 
-            high(hL1)
+            high(hL1,hL2,hL3,hL4,hL5)
 
             var lH1 = data.list[5].main.temp_min
+            var lH2 = data.list[13].main.temp_min
+            var lH3 = data.list[21].main.temp_min
+            var lH4 = data.list[29].main.temp_min
+            var lH5 = data.list[37].main.temp_min
 
-            low(lH1)
+            low(lH1,lH2,lH3,lH4,lH5)
 
 
         });
@@ -152,24 +143,36 @@ function getTemps(first, second, third, fourth, fith) {
 function getIcon(first, second, third, fourth, fith) {
 
     var icon1EL = document.getElementById('icon1').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + first + ".png\" alt=\"maybe\">"
-    // var icon1EL = document.getElementById('icon1').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + first + ".png\" alt=\"maybe\">"
-    // var icon1EL = document.getElementById('icon1').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + first + ".png\" alt=\"maybe\">"
-    // var icon1EL = document.getElementById('icon1').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + first + ".png\" alt=\"maybe\">"
-    // var icon1EL = document.getElementById('icon1').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + first + ".png\" alt=\"maybe\">"
+    var icon2EL = document.getElementById('icon2').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + second + ".png\" alt=\"maybe\">"
+    var icon3EL = document.getElementById('icon3').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + third + ".png\" alt=\"maybe\">"
+    var icon4EL = document.getElementById('icon4').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + fourth + ".png\" alt=\"maybe\">"
+    var icon5EL = document.getElementById('icon5').innerHTML = "<img src=\"http://openweathermap.org/img/wn/" + fith + ".png\" alt=\"maybe\">"
 
 }
 function feelLike(first, second, third, fourth, fith) {
 
     var temp1El = document.getElementById('feelD1').textContent = ((first - 273.15) * 9 / 5 + 32).toFixed(0)
+    var temp2El = document.getElementById('feelD2').textContent = ((second - 273.15) * 9 / 5 + 32).toFixed(0)
+    var temp3El = document.getElementById('feelD3').textContent = ((third - 273.15) * 9 / 5 + 32).toFixed(0)
+    var temp4El = document.getElementById('feelD4').textContent = ((fourth - 273.15) * 9 / 5 + 32).toFixed(0)
+    var temp5El = document.getElementById('feelD5').textContent = ((fith - 273.15) * 9 / 5 + 32).toFixed(0)
 
 }
-function high(first) {
+function high(first,second,third,fourth,fith) {
 
-    var high_low1 = document.getElementById('highLo1').textContent = first
+    var high_low1 = document.getElementById('highLo1').textContent = ((first - 273.15) * 9 / 5 + 32).toFixed(0)
+    var high_low2 = document.getElementById('highLo2').textContent = ((second - 273.15) * 9 / 5 + 32).toFixed(0)
+    var high_low3 = document.getElementById('highLo3').textContent = ((third - 273.15) * 9 / 5 + 32).toFixed(0)
+    var high_low4 = document.getElementById('highLo4').textContent = ((fourth - 273.15) * 9 / 5 + 32).toFixed(0)
+    var high_low5 = document.getElementById('highLo5').textContent = ((fith - 273.15) * 9 / 5 + 32).toFixed(0)
 
 }
-function low(first) {
+function low(first,second,third,fourth,fith) {
 
-    var low_high1 = document.getElementById('loHigh1').textContent = first
+    var low_high1 = document.getElementById('loHigh1').textContent = ((first - 273.15) * 9 / 5 + 32).toFixed(0)
+    var low_high2 = document.getElementById('loHigh2').textContent = ((second - 273.15) * 9 / 5 + 32).toFixed(0)
+    var low_high3 = document.getElementById('loHigh3').textContent = ((third - 273.15) * 9 / 5 + 32).toFixed(0)
+    var low_high4 = document.getElementById('loHigh4').textContent = ((fourth - 273.15) * 9 / 5 + 32).toFixed(0)
+    var low_high5 = document.getElementById('loHigh5').textContent = ((fith - 273.15) * 9 / 5 + 32).toFixed(0)
 }
 
